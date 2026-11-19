@@ -1,0 +1,1160 @@
+
+
+/*Exercice 01*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/*
+  Q1)    En content-box (valeur par défaut) :
+         width ne désigne que le CONTENU. Le padding et la bordure
+         s'ajoutent de chaque côté (gauche + droite) :
+           300 + (20 × 2) + (2 × 2) = 300 + 40 + 4 = 344px
+ 
+        En border-box :
+         width inclut le contenu, le padding et la bordure.
+         La largeur totale reste donc 300px (le contenu se réduit
+         à 300 − 40 − 4 = 256px).
+ 
+ 
+   Q2) Parce que box-sizing n'est PAS une propriété héritée. Écrite
+       sur body, elle ne s'applique qu'à la balise <body> elle-même,
+       pas à ses descendants (header, section, div, p...), qui
+       gardent content-box.
+       Il faut donc la cibler sur tous les éléments avec le
+       sélecteur universel *.
+       De plus, * ne sélectionne pas les pseudo-éléments : il faut
+       ajouter explicitement *::before et *::after.
+ 
+ 
+   Q3)   La feuille de style du navigateur applique à <ul> :
+         une marge verticale (margin-block ≈ 1em, soit 16px en
+           haut et en bas)            -> supprimée par margin: 0
+         un retrait à gauche (padding-left ≈ 40px)
+                                      -> supprimé par padding: 0
+         des puces (list-style: disc)
+                                      -> supprimées par list-style: none
+
+*/
+
+/*--------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Exercice 02 : */
+
+body {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;          /* sans unité : multiple de la taille de police */
+  color: #1f2937;
+  background-color: #f4f6fb;
+}
+
+.site-header {
+  background-color: rgb(11, 42, 91);
+  color: #ffffff;
+}
+ 
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+ 
+.logo-accent {
+  color: #f5b942;
+}
+ 
+
+.hero {
+  background-color: #12356e;
+  color: #ffffff;
+  text-align: center;
+}
+ 
+.hero-content {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+ 
+.hero-eyebrow {
+  color: #f5b942;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+ 
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+ 
+.lead {
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+ 
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0b2a5b;
+}
+ 
+
+.stat-card {
+  background-color: #ffffff;
+  text-align: center;
+}
+ 
+.stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1d4ed8;
+}
+ 
+.stat-label {
+  color: #6b7280;
+}
+ 
+
+.card,
+.sidebar,
+.news-box,
+.contact-form,
+.event {
+  background-color: #ffffff;
+}
+ 
+.card-media {
+  background-color: #2563eb;
+}
+ 
+.card-badge {
+  background-color: #f5b942;
+  color: #0b2a5b;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+ 
+.card-title,
+.news-title {
+  font-size: 1.25rem;
+}
+ 
+.sidebar-title {
+  font-size: 1.1rem;
+}
+ 
+.card-title,
+.news-title,
+.sidebar-title {
+  color: #0b2a5b;
+}
+ 
+.card-text {
+  color: #4b5563;
+}
+ 
+.tag {
+  background-color: #e0e7ff;
+  color: #1e3a8a;
+  font-size: 0.85rem;
+}
+ 
+
+.btn {
+  font-weight: 600;
+}
+ 
+.btn-primary {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+ 
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+ 
+.btn-outline {
+  background-color: transparent;
+  color: #ffffff;
+}
+ 
+
+.event-date {
+  background-color: #dbeafe;
+  color: #1e3a8a;
+  font-weight: 700;
+  text-align: center;
+}
+ 
+.event-place {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+ 
+
+.form-label {
+  font-weight: 600;
+}
+ 
+
+.site-footer {
+  background-color: #0f172a;
+  color: #cbd5e1;
+}
+
+/*
+ Q1)    Conversion : chaque paire hexadécimale est un canal.
+           12 (hex) = 1×16 + 2  = 18   -> rouge
+           35 (hex) = 3×16 + 5  = 53   -> vert
+           6e (hex) = 6×16 + 14 = 110  -> bleu
+         Donc #12356e = rgb(18, 53, 110).
+ 
+        rgb(255, 255, 255) est un blanc totalement OPAQUE : il
+         cache ce qu'il y a derrière.
+         rgba(255, 255, 255, 0.1) est le même blanc avec un canal
+         alpha de 0.1, soit 10 % d'opacité : il est quasi
+         transparent et laisse voir le fond bleu du hero à travers.
+         Résultat : un léger voile clair au lieu d'un bloc blanc.
+         
+  Q2)  Une valeur SANS unité est un multiplicateur de la taille de
+       police de CHAQUE élément : la valeur multiplicatrice (1.6)
+       est héritée telle quelle, puis recalculée pour chaque
+       descendant selon sa propre font-size.
+       Avec 25px, c'est la valeur calculée (25px) qui est héritée :
+       un titre de 40px aurait aussi 25px d'interligne, et ses
+       lignes se chevaucheraient. De plus 25px ne s'adapte pas si
+       l'utilisateur agrandit la police.
+
+  Q3) Parce que color et text-align sont des propriétés HÉRITÉES :
+       si un élément enfant ne définit pas sa propre valeur, il
+       reprend celle de son parent. Les descendants de .hero
+       (.hero-content, .hero-title, .lead...) héritent donc du
+       blanc et du centrage.
+*/
+
+
+/*Exercice 03 :*/
+ 
+/* ---------- Champs de formulaire : forcer l'héritage de la police ---------- */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;   
+  font-size: inherit;     
+}
+ 
+/* ---------- Liens : ils prennent la couleur de leur parent, sans soulignement ---------- */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ 
+/* ---------- Pastille du hero : couleur de la spécification ---------- */
+.hero-note {
+  color: initial;               
+  background-color: #fde68a;
+}
+ 
+/* ---------- Titre de carte : marge remise à zéro ---------- */
+.card-title {
+  margin: unset;                
+}
+ 
+/* ---------- Titres d'événements : plus en gras ---------- */
+.event-info strong {
+  font-weight: unset;           
+  font-size: 1.05rem;
+  color: #0b2a5b;
+}
+ 
+/* ---------- Lien de l'actualité : retour au style du navigateur ---------- */
+.news-text a {
+  color: revert;                
+  text-decoration: revert;      
+}
+ 
+ 
+/*
+ 
+   Q1. Parce que la feuille de style PAR DÉFAUT du navigateur donne
+       explicitement à button, input, select et textarea leur propre
+       font-family et font-size (police système, environ 13px). Ces
+       valeurs sont posées directement sur ces éléments : l'héritage
+       depuis body n'a donc plus lieu d'être.
+       Avec font-family: inherit et font-size: inherit, on force
+       ces éléments à reprendre les valeurs de leur parent.
+ 
+ 
+   Q2. Normalement, .hero-note hériterait du blanc de .hero.
+       Mais initial IGNORE l'héritage et applique la valeur par
+       défaut définie par la spécification CSS pour la propriété
+       color : un texte sombre (CanvasText, en pratique noir).
+       Le texte est donc sombre, lisible sur la pastille jaune pâle
+       (#fde68a), même à l'intérieur d'un hero blanc.
+ 
+ 
+   Q3. unset se comporte différemment selon que la propriété est
+       héritée ou non :
+         • margin n'est PAS héritée  => unset équivaut à initial,
+           soit 0. La marge par défaut du navigateur disparaît.
+         • font-weight EST héritée   => unset équivaut à inherit :
+           l'élément prend le poids de son parent (normal), donc le
+           gras par défaut de <strong> disparaît.
+       Même mot-clé, deux mécanismes : initial pour margin,
+       inherit pour font-weight.
+ 
+ 
+   Q4. • revert annule les styles de l'auteur (nos règles, dont
+         a { color: inherit; text-decoration: none }) et revient à
+         la feuille de style du NAVIGATEUR. Or le navigateur donne
+         aux liens la couleur bleue et le soulignement.
+       • initial, lui, applique la valeur par défaut de la
+         SPÉCIFICATION : color = noir/CanvasText et
+         text-decoration = none. Il ne connaît pas le style
+         « lien » du navigateur : le lien ne serait ni bleu ni
+         souligné.
+*/
+
+
+/* Exercice 04 : */
+
+/* ---------- Conteneur central ---------- */
+.container {
+  width: 100%;
+  max-width: 1100px;        
+  margin: 0 auto;          
+  padding: 0 1.5rem;       
+}
+ 
+/* ---------- En-tête ---------- */
+.site-header {
+  padding: 1rem 2rem;
+}
+ 
+/* ---------- Hero ---------- */
+.hero {
+  min-height: 60vh;         
+  padding: 4rem 1.5rem;
+}
+ 
+.hero-content {
+  width: 80vw;              
+  max-width: 48rem;         
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+}
+ 
+/* ---------- Espacements verticaux ---------- */
+.stats {
+  margin: 2rem 0;
+}
+ 
+.section {
+  margin: 3rem 0;
+}
+ 
+.section-title {
+  margin: 0 0 1.25rem;
+}
+ 
+/* ---------- Blocs encadrés ---------- */
+.stat-card,
+.card,
+.sidebar,
+.news-box,
+.contact-form,
+.event {
+  border: 1px solid #dbe2ef;
+  border-radius: 12px;
+}
+ 
+/* ---------- Statistiques ---------- */
+.stat-card {
+  padding: 1.25rem;
+}
+ 
+/* ---------- Cartes ---------- */
+.card {
+  width: 30%;
+  min-width: 16rem;
+}
+ 
+.card-media {
+  height: 120px;
+}
+ 
+.card-body {
+  padding: 1.25rem;
+}
+ 
+.card-text {
+  margin: 0.5rem 0 1rem;
+}
+ 
+.card-meta {
+  margin-bottom: 1rem;
+}
+ 
+/* ---------- Boutons ---------- */
+.btn {
+  padding: 0.75em 1.5em;    
+  border: 2px solid transparent;
+  border-radius: 8px;
+}
+ 
+.btn-secondary,
+.btn-outline {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+ 
+/* ---------- Agenda ---------- */
+.event {
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+ 
+.event-date {
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+}
+ 
+.sidebar {
+  padding: 1.25rem;
+}
+ 
+.sidebar-title {
+  margin: 0 0 0.75rem;
+}
+ 
+/* ---------- Actualités ---------- */
+.news-box {
+  padding: 1.5rem;
+}
+ 
+.news-title {
+  margin: 0 0 1rem;
+}
+ 
+/* ---------- Formulaire ---------- */
+.contact-form {
+  max-width: 36rem;
+  padding: 2rem;
+}
+ 
+.form-group {
+  margin-bottom: 1rem;
+}
+ 
+.form-label {
+  margin-bottom: 0.35rem;
+}
+ 
+.form-control {
+  width: 100%;
+  padding: 0.65em 0.8em;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+ 
+/* ---------- Pied de page ---------- */
+.site-footer {
+  margin-top: 4rem;
+  padding: 2rem 1.5rem;
+}
+ 
+ 
+/*Q1.  Un pourcentage de width se calcule par rapport à la largeur
+       du CONTENU du parent (le bloc conteneur), ici .cards-grid.
+       Ce parent occupe toute la zone de contenu de .container :
+         1100px − (2 × 1.5rem de padding) = 1100 − 48 = 1052px
+       (grâce à border-box, le padding est inclus dans les 1100px).
+       Donc : 30 % × 1052 = 315,6px.
+       Grâce à border-box, ces 315,6px incluent déjà la bordure de
+       1px de chaque côté : la carte occupe bien 315,6px au total.
+       min-width: 16rem (256px) n'intervient pas ici, car 315,6px
+       est supérieur à 256px.
+ 
+ 
+   Q2. em est relatif à la taille de police DE L'ÉLÉMENT lui-même.
+       Le padding s'adapte donc automatiquement à la taille du
+       texte du bouton : si on agrandit sa font-size, le bouton
+       grandit proportionnellement (même aspect visuel).
+       rem, lui, est relatif à la police de la racine <html> : le
+       padding resterait identique quelle que soit la taille du
+       texte du bouton.
+       La différence se voit quand le bouton a une font-size
+       différente de celle de la racine (par exemple un bouton
+       agrandi ou réduit, ou un bouton dont la taille de police
+       est modifiée par une classe).
+ 
+ 
+   Q3. width: 80vw vaut 80 % de la largeur de la fenêtre.
+       max-width: 48rem vaut 48 × 16 = 768px.
+       80vw atteint 768px quand la fenêtre fait 768 / 0,8 = 960px.
+       Au-delà de 960px, 80vw dépasserait 768px : c'est max-width
+       qui l'emporte et la boîte reste bloquée à 768px.
+       En CSS, max-width l'emporte toujours sur width (et
+       min-width l'emporte sur max-width).
+ 
+ 
+   Q4.Sans border-box, .form-control est en content-box :
+       width: 100% ne désigne que le contenu. Le padding
+       (0.65em × 2 en vertical, 0.8em × 2 en horizontal) et la
+       bordure de 1px (× 2) s'ajoutent, donc la largeur totale
+       dépasse 100 % : les champs débordent à droite du formulaire.
+       Avec border-box, padding et bordure sont inclus dans les
+       100 % : le champ s'ajuste exactement à son parent.
+ 
+ 
+   Q5. • 60vh = 60 % de la hauteur de la FENÊTRE (viewport). Cette
+         valeur est toujours définie, donc le hero fait au moins
+         60 % de l'écran.
+       • 60 % = 60 % de la hauteur du PARENT. Or ici le parent
+         (body) n'a pas de hauteur explicite (hauteur « auto »,
+         déterminée par son contenu) : le pourcentage ne peut pas
+         être calculé et n'a aucun effet.
+*/
+
+
+/*
+
+
+
+/*Exercicze 05 : */
+ 
+/* Le message « Version imprimable » disparaît complètement du rendu */
+.print-only {
+  display: none;
+}
+ 
+/* Chiffres et libellés sur deux lignes (un par ligne) */
+.stat-number,
+.stat-label,
+.event-place,
+.event-info strong {
+  display: block;
+}
+ 
+/* <span> : déjà inline par défaut, on le rend explicite */
+.logo-accent {
+  display: inline;
+}
+ 
+/* Tags : pastilles côte à côte, avec marges et padding qui comptent */
+.tag {
+  display: inline-block;
+  margin: 0 0.35rem 0.35rem 0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+}
+ 
+/* Boutons : en ligne mais avec une vraie hauteur */
+.btn {
+  display: inline-block;
+}
+ 
+/* Liens du menu : zone cliquable plus grande */
+.nav-link {
+  display: block;
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+}
+ 
+/* Pastille du hero */
+.hero-note {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+}
+ 
+/* Chaque champ sous son libellé */
+.form-label,
+.form-control {
+  display: block;
+}
+ 
+/* Liens d'accès rapide : toute la ligne est cliquable */
+.quick-link {
+  display: block;
+  padding: 0.5rem 0;
+}
+ 
+ 
+/*. On ajoute temporairement padding: 1rem 0; à .logo-accent.
+       Qu'observe-t-on, et pourquoi ?
+ 
+       Rien ne change dans la mise en page : la hauteur de la ligne
+       et la position du texte restent identiques. Le padding
+       vertical d'un élément INLINE est bien dessiné (on le voit
+       avec l'inspecteur, ou si un fond était défini), mais il ne
+       repousse PAS les lignes voisines : il déborde simplement
+       au-dessus et en dessous, en chevauchant le contenu proche.
+       Les boîtes inline ignorent donc les marges et dimensions
+       verticales dans le calcul de la ligne.
+ 
+ 
+   Q2. Un élément inline ignore width/height et les marges
+       verticales, et son padding vertical ne repousse pas le
+       voisinage : le bouton chevaucherait le texte autour de lui
+       et n'aurait pas de « vraie hauteur ».
+       inline-block reste dans le flux du texte (côte à côte avec
+       d'autres éléments) MAIS se comporte comme une boîte : il
+       accepte dimensions, padding et marges verticales.
+ 
+ 
+   Q3. • display: none retire l'élément du rendu : il n'occupe
+         plus aucune place, la mise en page se réorganise comme
+         s'il n'existait pas.
+       • visibility: hidden le rend invisible mais il CONSERVE
+         sa place : un « trou » reste dans la mise en page.
+ 
+ 
+   Q4. Les <li> ont par défaut display: list-item (un bloc).
+       En leur appliquant display: inline-block, on les place dans
+       le flux de la ligne comme du texte : ils se suivent
+       horizontalement et passent à la ligne seulement quand la
+       place manque, tout en gardant padding et marges.
+*/
+
+
+
+/*Exercice 06*/
+ 
+/* ---------- En-tête : logo à gauche, menu, bouton à droite ---------- */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+ 
+.nav-list {
+  display: flex;
+  gap: 0.5rem;
+}
+ 
+/* ---------- Hero ---------- */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+ 
+/* ---------- Statistiques : quatre cartes côte à côte ---------- */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+ 
+.stat-card {
+  flex: 1 1 10rem;
+}
+ 
+/* ---------- Cartes de formation ---------- */
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+ 
+.card {
+  display: flex;
+  flex-direction: column;
+}
+ 
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+ 
+.card-body > .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+ 
+/* ---------- Agenda ---------- */
+.agenda-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+ 
+.event-list {
+  flex: 1;
+}
+ 
+.sidebar {
+  flex: 0 0 16rem;
+}
+ 
+.event {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+ 
+.event-date {
+  flex: 0 0 5rem;
+}
+ 
+/* ---------- Pied de page ---------- */
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+ 
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+ 
+/* Q1. La direction par défaut est row : l'axe principal est donc
+       HORIZONTAL (de gauche à droite) et l'axe secondaire est
+       vertical. justify-content agit sur l'axe principal
+       (répartition horizontale, ici space-between), tandis que
+       l'alignement VERTICAL est contrôlé par align-items
+       (ici center).
+ 
+ 
+   Q2. flex: <grow> <shrink> <basis>
+         • 1  (flex-grow)   : l'élément peut grandir et se
+                              partager l'espace libre.
+         • 1  (flex-shrink) : il peut rétrécir si la place manque.
+         • 10rem (flex-basis): taille de départ de 10rem avant
+                              répartition de l'espace.
+       Avec flex-wrap: wrap, les cartes de statistiques mesurent
+       au moins ~10rem ; quand elles tiennent sur une ligne, elles
+       grandissent pour la remplir (quatre côte à côte), sinon
+       elles passent à la ligne.
+ 
+ 
+   Q3. Dans un conteneur flex, une marge « auto » absorbe tout
+       l'espace libre disponible sur son axe. Ici .card-body est
+       une colonne qui remplit la carte (flex: 1) : la marge
+       supérieure automatique du bouton prend tout l'espace libre
+       au-dessus de lui et le pousse tout en bas.
+       Les cartes ont la même hauteur grâce à align-items:
+       stretch (valeur par défaut) sur .cards-grid : les boutons
+       s'alignent donc sur une même ligne.
+ 
+ 
+   Q4. La valeur par défaut est stretch : la barre latérale
+       (.sidebar) serait étirée sur toute la hauteur de la liste
+       d'événements. Elle n'aurait plus de hauteur propre, ce qui
+       rendrait inutile (voire cassé) le comportement sticky de
+       l'exercice 7, qui nécessite que la barre soit plus courte
+       que son parent pour pouvoir « suivre » le défilement.
+*/
+
+
+
+/*Exercice 07*/
+ 
+/* ---------- En-tête collant en haut de la fenêtre ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+ 
+/* ---------- Pied de page : flux normal ---------- */
+.site-footer {
+  position: static;
+}
+ 
+/* ---------- Bandeau de carte : sert de repère de positionnement ---------- */
+.card-media {
+  position: relative;
+}
+ 
+/* Cercle translucide en haut à droite (déborde du bandeau) */
+.card-shape {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+ 
+/* Badge jaune au-dessus du cercle */
+.card-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+}
+ 
+/* ---------- Accès rapide : suit le défilement ---------- */
+.sidebar {
+  position: sticky;
+  top: 5.5rem;              /* sous l'en-tête collant */
+}
+ 
+/* ---------- Bouton « Haut » fixé dans la fenêtre ---------- */
+.back-to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 90;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background-color: #0b2a5b;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3);
+}
+ 
+ 
+/*
+Q1. Un élément en position: absolute se place par rapport à son
+       plus proche ANCÊTRE POSITIONNÉ. Ici c'est .card-media (grâce
+       à position: relative) : top/right de 0.75rem se mesurent
+       depuis le coin supérieur droit du bandeau bleu.
+       Sans cela, le badge (et le cercle) chercherait un autre
+       ancêtre positionné ; n'en trouvant aucun, il se placerait
+       par rapport à la page entière (bloc conteneur initial) :
+       badge et cercle iraient en haut à droite de la page, hors
+       de leurs cartes.
+ 
+ 
+   Q2. • fixed : retiré du flux et positionné par rapport à la
+         FENÊTRE ; il reste à la même place à l'écran quel que
+         soit le défilement (comme le bouton « ↑ Haut »).
+       • sticky : reste DANS le flux ; il se comporte comme relative
+         jusqu'à atteindre le seuil (top), puis « colle » pendant
+         le défilement, mais seulement à l'intérieur de son parent
+         (il repart avec lui).
+ 
+ 
+   Q3. Badge et cercle sont tous deux positionnés. Sans z-index
+       (auto), l'ordre d'empilement suit l'ordre dans le HTML : le
+       badge vient avant le cercle, donc le cercle (arrivé après)
+       est peint par-dessus. Avec z-index: 2 contre z-index: 1 pour
+       le cercle, le badge repasse devant.
+ 
+ 
+   Q4. Ils n'ont AUCUN effet : top/right/bottom/left et z-index ne
+       s'appliquent qu'aux éléments positionnés (valeur de position
+       différente de static). Seule exception : z-index fonctionne
+       aussi sur les éléments enfants d'un conteneur flex ou grid.
+*/
+
+
+
+/*Exercice 08*/
+ 
+/* Coupe ce qui dépasse : le cercle dans le bandeau, les coins de la carte */
+.card,
+.card-media {
+  overflow: hidden;
+}
+ 
+/* Actualité : zone de hauteur limitée avec défilement interne */
+.news-text {
+  max-height: 9rem;
+  overflow-y: auto;
+  padding-right: 0.75rem;   /* évite que le texte touche la barre de défilement */
+}
+ 
+ 
+/*Q1.  • Sur .card-media : le cercle (.card-shape, 200px, décalé
+         de -60px) déborde du bandeau bleu. overflow: hidden coupe
+         le cercle aux bords du bandeau.
+       • Sur .card : la carte a un border-radius de 12px, mais ses
+         enfants (le bandeau bleu aux angles droits) dépasseraient
+         des coins arrondis. overflow: hidden sur la carte coupe le
+         contenu selon ses coins arrondis, ce qui donne des angles
+         nets et propres.
+       Chaque règle règle un problème différent.
+ 
+ 
+   Q2. • scroll : les barres de défilement sont TOUJOURS affichées,
+         même si le contenu ne déborde pas.
+       • auto   : les barres n'apparaissent QUE si le contenu
+         dépasse la zone.
+       On utilise donc auto pour .news-text.
+ 
+ 
+   Q3. position: sticky se réfère au plus proche ancêtre qui crée
+       un contexte de défilement. Ici aucun ancêtre de .sidebar
+       (.agenda-layout, .section, .container, body) n'a d'overflow
+       autre que visible : c'est donc la fenêtre qui sert de
+       référence et la barre colle correctement.
+       Un ancêtre avec overflow: hidden, auto ou scroll (par
+       exemple si .container avait overflow: hidden) deviendrait
+       le conteneur de défilement et casserait le sticky, qui ne
+       suivrait plus le défilement de la page.
+       (.card a overflow: hidden mais n'est pas un ancêtre de
+       .sidebar, donc aucun problème.)
+*/
+
+/* Exercice 09 */
+ 
+/* ---------- Survol ---------- */
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+ 
+.btn {
+  cursor: pointer;
+}
+ 
+.btn-primary:hover {
+  background-color: #1e40af;
+}
+ 
+.btn-secondary:hover,
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+ 
+.card:hover {
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+}
+ 
+.event:hover {
+  background-color: #eff6ff;
+}
+ 
+.quick-link:hover {
+  color: #1d4ed8;
+}
+ 
+/* ---------- Champ actif : bordure bleue + halo ---------- */
+.form-control:focus {
+  outline: none;                       
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+}
+ 
+/* ---------- Navigation clavier : anneau jaune ---------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #f5b942;
+  outline-offset: 2px;
+}
+ 
+ 
+/* Q1.• :focus s'applique dès que l'élément reçoit le focus, que
+         ce soit à la souris OU au clavier.
+       • :focus-visible ne s'applique que lorsque le navigateur
+         juge l'indicateur utile : navigation au clavier (Tab),
+         ou éléments où l'on saisit du texte.
+       Un champ de texte attend une saisie : le navigateur affiche
+       toujours son focus, et notre règle .form-control:focus
+       s'applique même au clic (elle utilise :focus, pas
+       :focus-visible). Un bouton cliqué à la souris n'a pas
+       besoin d'indicateur : :focus-visible ne correspond pas, donc
+       pas d'anneau jaune. Au clavier, il s'affiche.
+ 
+ 
+   Q2. Le contour est l'indicateur qui montre à l'utilisateur au
+       clavier (ou avec un lecteur d'écran / une aide technique)
+       quel élément est actif. Le supprimer sans alternative rend
+       la navigation impossible à suivre : c'est un problème
+       d'accessibilité (critère WCAG « focus visible »).
+       Ici, outline: none sur .form-control est acceptable parce
+       qu'on le remplace par une bordure bleue et un halo.
+ 
+ 
+   Q3.Non. Sur écran tactile il n'y a pas de pointeur qui survole :
+       :hover se déclenche de manière aléatoire (souvent au toucher,
+       puis reste « collé » jusqu'au toucher suivant) ou jamais.
+       Conséquence : ne jamais réserver une information ou une
+       action essentielle au survol. Le survol doit rester un
+       RENFORT visuel (le bouton doit être utilisable et lisible
+       sans lui). On peut aussi réserver certains effets aux
+       appareils qui survolent vraiment avec
+       @media (hover: hover).
+*/
+
+/*Exercice défi */
+ 
+/* ---------- Carte centrée ---------- */
+.portal {
+  max-width: 40rem;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #dbe2ef;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+  overflow: hidden;                 
+}
+ 
+/* ---------- Bandeau bleu : avatar, nom, bouton Messages ---------- */
+.portal-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background-color: rgb(11, 42, 91);
+  color: #ffffff;
+}
+ 
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: #f5b942;
+  color: #0b2a5b;
+  font-weight: 800;
+  flex-shrink: 0;                   
+}
+ 
+.portal-id {
+  flex: 1;                          
+}
+ 
+.portal-name {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+ 
+.portal-status {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+ 
+/* Bouton « Messages » : repère de positionnement pour la pastille */
+.portal-bell {
+  position: relative;
+  display: inline-block;
+  padding: 0.5em 1em;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+}
+ 
+/* Pastille rouge en haut à droite du bouton */
+.bell-count {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4rem;
+  min-height: 1.4rem;
+  text-align: center;
+  background-color: #dc2626;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 999px;
+}
+ 
+/* ---------- Rangée de liens-boutons ---------- */
+.portal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+ 
+.portal-link {
+  display: inline-block;
+  padding: 0.4em 0.9em;
+  border-radius: 6px;
+  background-color: #eef2ff;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+ 
+.portal-link:hover {
+  background-color: #1d4ed8;
+  color: #ffffff;
+}
+ 
+/* ---------- Liste de messages à défilement interne ---------- */
+.portal-messages {
+  max-height: 12rem;
+  overflow-y: auto;
+}
+ 
+.messages-title {
+  position: sticky;                 
+  top: 0;
+  z-index: 1;                       
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 1rem;
+}
+ 
+.message {
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+ 
+.message:hover {
+  background-color: #f8fafc;
+}
+ 
+ 
+/*
+   • .portal a overflow: hidden pour que le bandeau bleu (aux
+     angles droits) soit coupé selon les coins arrondis de 14px
+     de la carte.
+   • .portal-messages a overflow-y: auto pour que la liste défile
+     à l'intérieur de sa hauteur maximale de 12rem, sans allonger
+     la carte. Cela crée aussi la zone de défilement par rapport
+     à laquelle .messages-title est sticky : le titre reste collé
+     en haut de cette zone.
+   • .bell-count n'est pas coupé car il ne dépasse que de 0.5rem
+     du bouton, et le bouton se trouve bien à l'intérieur du
+     bandeau (qui a 1.25rem/1.5rem de padding) : la pastille reste
+     donc dans les limites de .portal. De plus .portal-bell
+     n'a pas d'overflow : il ne clippe pas son enfant positionné
+     (position: absolute avec .portal-bell en position: relative).
+*/
+ 
+ 
+ 
+ 
+ 
+ 
+
+

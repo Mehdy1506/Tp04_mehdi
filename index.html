@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Université Horizon – Plateforme étudiante</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="#accueil">Université <span class="logo-accent">Horizon</span></a>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <ul class="nav-list">
+        <li class="nav-item"><a class="nav-link" href="#formations">Formations</a></li>
+        <li class="nav-item"><a class="nav-link" href="#agenda">Agenda</a></li>
+        <li class="nav-item"><a class="nav-link" href="#actualites">Actualités</a></li>
+        <li class="nav-item"><a class="nav-link" href="#espace">Espace étudiant</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-outline" href="#espace">Connexion</a>
+  </header>
+
+  <section class="hero" id="accueil">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Année universitaire 2026–2027</p>
+      <h1 class="hero-title">Bienvenue sur la plateforme de l’Université Horizon</h1>
+      <p class="lead">Consultez vos formations, votre agenda et les actualités du campus en un seul endroit.</p>
+      <p class="hero-note">Les inscriptions pédagogiques sont ouvertes jusqu’au 30 octobre.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#formations">Découvrir les formations</a>
+        <a class="btn btn-secondary" href="#contact">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <p class="print-only">Version imprimable – ne pas diffuser en dehors de l’université.</p>
+
+    <section class="stats" aria-label="Chiffres clés">
+      <div class="stat-card"><span class="stat-number">12 500</span><span class="stat-label">Étudiants</span></div>
+      <div class="stat-card"><span class="stat-number">48</span><span class="stat-label">Formations</span></div>
+      <div class="stat-card"><span class="stat-number">620</span><span class="stat-label">Enseignants</span></div>
+      <div class="stat-card"><span class="stat-number">92 %</span><span class="stat-label">Réussite en licence</span></div>
+    </section>
+
+    <section class="section" id="formations">
+      <h2 class="section-title">Nos formations</h2>
+      <div class="cards-grid">
+
+        <article class="card">
+          <div class="card-media">
+            <span class="card-badge">Nouveau</span>
+            <span class="card-shape"></span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Licence Informatique</h3>
+            <p class="card-text">Algorithmique, bases de données et développement Web : un socle solide pour devenir développeur.</p>
+            <ul class="card-meta">
+              <li class="tag">3 ans</li>
+              <li class="tag">Présentiel</li>
+              <li class="tag">Campus Nord</li>
+            </ul>
+            <a class="btn btn-primary" href="#contact">En savoir plus</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <span class="card-badge">Populaire</span>
+            <span class="card-shape"></span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Licence Gestion</h3>
+            <p class="card-text">Comptabilité, marketing et management pour comprendre le fonctionnement des organisations.</p>
+            <ul class="card-meta">
+              <li class="tag">3 ans</li>
+              <li class="tag">Hybride</li>
+              <li class="tag">Campus Centre</li>
+            </ul>
+            <a class="btn btn-primary" href="#contact">En savoir plus</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <span class="card-badge">Alternance</span>
+            <span class="card-shape"></span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Master Data Science</h3>
+            <p class="card-text">Statistiques, apprentissage automatique et projets réalisés en partenariat avec des entreprises.</p>
+            <ul class="card-meta">
+              <li class="tag">2 ans</li>
+              <li class="tag">Alternance</li>
+              <li class="tag">Campus Nord</li>
+            </ul>
+            <a class="btn btn-primary" href="#contact">En savoir plus</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section" id="agenda">
+      <h2 class="section-title">Agenda du campus</h2>
+      <div class="agenda-layout">
+        <ul class="event-list">
+          <li class="event">
+            <time class="event-date" datetime="2026-10-21">21 oct.</time>
+            <div class="event-info"><strong>Conférence d’ouverture</strong><span class="event-place">Amphi A – 10 h</span></div>
+          </li>
+          <li class="event">
+            <time class="event-date" datetime="2026-10-24">24 oct.</time>
+            <div class="event-info"><strong>Forum des masters</strong><span class="event-place">Hall principal – 14 h</span></div>
+          </li>
+          <li class="event">
+            <time class="event-date" datetime="2026-10-28">28 oct.</time>
+            <div class="event-info"><strong>Atelier CV et entretiens</strong><span class="event-place">Salle B12 – 9 h</span></div>
+          </li>
+          <li class="event">
+            <time class="event-date" datetime="2026-11-03">03 nov.</time>
+            <div class="event-info"><strong>Journée portes ouvertes</strong><span class="event-place">Campus Nord – 9 h</span></div>
+          </li>
+          <li class="event">
+            <time class="event-date" datetime="2026-11-12">12 nov.</time>
+            <div class="event-info"><strong>Soutenances de projets</strong><span class="event-place">Amphi C – 15 h</span></div>
+          </li>
+        </ul>
+        <aside class="sidebar">
+          <h3 class="sidebar-title">Accès rapide</h3>
+          <ul class="quick-links">
+            <li><a class="quick-link" href="#agenda">Emploi du temps</a></li>
+            <li><a class="quick-link" href="#agenda">Bibliothèque</a></li>
+            <li><a class="quick-link" href="#agenda">Restauration</a></li>
+            <li><a class="quick-link" href="#contact">Scolarité</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="actualites">
+      <h2 class="section-title">Actualités</h2>
+      <article class="news-box">
+        <h3 class="news-title">Ouverture de la nouvelle bibliothèque numérique</h3>
+        <div class="news-text">
+          <p>L’université met à disposition de tous les étudiants une bibliothèque numérique regroupant plus de 40 000 ouvrages, revues scientifiques et thèses, accessibles 24 h/24 depuis le campus ou à distance.</p>
+          <p>Chaque étudiant peut emprunter jusqu’à dix documents numériques simultanément, pour une durée de trois semaines renouvelable une fois, sans frais supplémentaires.</p>
+          <p>Des séances de formation à la recherche documentaire sont organisées chaque semaine en petits groupes. Elles présentent les bases de données spécialisées, la gestion des références et les bonnes pratiques de citation.</p>
+          <p>Pour connaître les conditions d’accès détaillées, vous pouvez <a href="#contact">consulter le règlement intérieur</a> ou vous adresser au service de la scolarité.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="espace">
+      <h2 class="section-title">Espace étudiant</h2>
+      <div class="portal">
+        <div class="portal-profile">
+          <span class="avatar">AB</span>
+          <div class="portal-id">
+            <p class="portal-name">Amel Ben Salah</p>
+            <p class="portal-status">Licence 2 – Informatique</p>
+          </div>
+          <a class="portal-bell" href="#espace">Messages<span class="bell-count">3</span></a>
+        </div>
+        <ul class="portal-links">
+          <li><a class="portal-link" href="#espace">Notes</a></li>
+          <li><a class="portal-link" href="#espace">Absences</a></li>
+          <li><a class="portal-link" href="#espace">Documents</a></li>
+          <li><a class="portal-link" href="#espace">Stages</a></li>
+        </ul>
+        <div class="portal-messages">
+          <h3 class="messages-title">Derniers messages</h3>
+          <p class="message">Les notes du contrôle de Web sont disponibles.</p>
+          <p class="message">Rappel : rendu du projet de bases de données le 8 novembre.</p>
+          <p class="message">La salle B12 est remplacée par la salle B14 mardi.</p>
+          <p class="message">Votre attestation de scolarité est prête à être téléchargée.</p>
+          <p class="message">Inscription ouverte à l’atelier CV et entretiens.</p>
+          <p class="message">Bienvenue sur la nouvelle plateforme étudiante !</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2 class="section-title">Contacter la scolarité</h2>
+      <form class="contact-form" action="#" method="post">
+        <div class="form-group">
+          <label class="form-label" for="nom">Nom complet</label>
+          <input class="form-control" type="text" id="nom" name="nom" placeholder="Ex. Amel Ben Salah">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">E-mail universitaire</label>
+          <input class="form-control" type="email" id="email" name="email" placeholder="prenom.nom@horizon.edu">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="sujet">Sujet</label>
+          <select class="form-control" id="sujet" name="sujet">
+            <option>Inscription</option>
+            <option>Attestation</option>
+            <option>Examens</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Envoyer</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-text">© 2026 Université Horizon – Tous droits réservés.</p>
+      <ul class="footer-links">
+        <li><a class="footer-link" href="#accueil">Mentions légales</a></li>
+        <li><a class="footer-link" href="#accueil">Confidentialité</a></li>
+        <li><a class="footer-link" href="#contact">Accessibilité</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <a class="back-to-top" href="#accueil">↑ Haut</a>
+
+</body>
+</html>
